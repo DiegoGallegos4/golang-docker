@@ -1,0 +1,7 @@
+FROM golang:alpine
+RUN apk update && apk add git
+COPY . /go/src/github.com/kartz/ratings/app
+WORKDIR /go/src/github.com/kartz/ratings/app
+RUN go get ./
+CMD go get github.com/pilu/fresh && fresh
+EXPOSE 5000

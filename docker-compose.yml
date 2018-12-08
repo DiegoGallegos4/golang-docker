@@ -1,0 +1,12 @@
+version: "3"
+services: 
+  app:
+    image: kartz/ratings.dev:latest
+    volumes:
+      - "./:/go/src/github.com/kartz/ratings/app"
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+  db:
+    image: postgres:10.3-alpine
